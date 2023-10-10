@@ -1,8 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { TouchableOpacityProps } from 'react-native';
+import {Container, Title, ButtonTypeStyleProps} from './styles'
 
-const Button = () => {
+type Props = TouchableOpacityProps & {
+  title: string,
+  type?: ButtonTypeStyleProps,
+}
+
+const Button = ({title, type = 'PRIMARY', ...rest}:Props) => {
   return (
-    <div>Button</div>
+    <Container type={type} {...rest} >
+      <Title>
+        {title}
+      </Title>
+    </Container>
   )
 }
 
